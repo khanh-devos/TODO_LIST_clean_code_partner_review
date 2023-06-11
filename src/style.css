@@ -1,0 +1,154 @@
+@import url("https://fonts.googleapis.com/css2?family=Raleway:wght@500;700&display=swap");
+
+* {
+  box-sizing: border-box;
+  font-size: 15px;
+  font-family: Raleway, fantasy;
+  margin: 0;
+}
+
+body {
+  background: bisque;
+  padding: 20px 10px;
+  max-width: 700px;
+}
+
+#header {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+}
+
+#header h1 {
+  flex: 1;
+  font-size: 20px;
+}
+
+#form1 {
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  padding: 10px 0;
+  margin: 20px 0;
+  background: rgb(255, 243, 220);
+}
+
+#form1-input1 {
+  flex: 1;
+  background: none;
+  border: none;
+  padding: 5px 5px;
+}
+
+#form1-input1:focus {
+  outline: none;
+  background: none;
+  width: 30px;
+}
+
+#form1-btn {
+  border: none;
+  background: transparent;
+}
+
+#form1-span {
+  background: rgb(255, 243, 220);
+}
+
+#refresh-btn:hover {
+  color: #545b77;
+}
+
+#refresh-btn:active {
+  color: bisque;
+}
+
+#form2-btn {
+  width: 100%;
+  margin-top: 20px;
+  padding: 15px 0;
+  background: wheat;
+  border: none;
+  border-radius: 5px;
+  transition: box-shadow 0.2s;
+  box-shadow: 1px 1px #545b77;
+}
+
+#form2-btn:hover {
+  background: orange;
+  box-shadow: 2px 3px #545b77;
+}
+
+#form2-btn:active {
+  box-shadow: 0 1px #545b77;
+  transform: translateY(1px);
+}
+
+#form2-btn:active::after {
+  box-shadow: 2px 3px #545b77;
+}
+
+.form2-ul {
+  list-style: none;
+  padding-left: 5px;
+}
+
+.form2-input {
+  border: none;
+  outline: none;
+  color: black;
+  text-transform: capitalize;
+  height: 60px;
+}
+
+.form2-ul-li {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  border-radius: 5px;
+  padding: 0 5px;
+  background: none;
+  border-bottom: 1px solid rgb(224, 224, 224);
+}
+
+.form2-ul-li:hover {
+  background: wheat;
+  outline: auto #116a7b;
+}
+
+.form2-input:hover {
+  color: #116a7b;
+  font-weight: bold;
+}
+
+.form2-input[type="text"] {
+  flex: 1;
+  padding: 5px 5px;
+  background: none;
+}
+
+.span-none {
+  display: none;
+}
+
+.material-symbols-outlined {
+  width: 30px;
+  font-weight: 400;
+  color: rgb(131, 131, 131);
+  cursor: pointer;
+}
+
+.material-symbols-outlined:hover {
+  color: #116a7b;
+}
+
+.material-symbols-outlined:active {
+  color: bisque;
+}
+
+@media screen and (min-width: 768px) {
+  body {
+    padding: 20px 10%;
+  }
+}
