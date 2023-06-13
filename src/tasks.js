@@ -1,15 +1,13 @@
-import {
-  deleteArrOfIndex, editTask, exhangeData, getData, setData,
-} from './data.js';
+import * as data from './data.js';
 import createNewElement from './newElement.js';
 
 class Task {
   constructor() {
-    document.querySelector('#refresh-btn').addEventListener('click', this.refreshTasks);
+    document.querySelector('#refresh-btn').addEventListener('click', this.refreshTasks.bind(this));
     this.draggedLiId = null;
   }
 
-  buildForm1 = () => {
+  buildForm1() {
     const form = createNewElement({
       type: 'form',
       id: 'form1',
@@ -24,14 +22,14 @@ class Task {
         
       `,
       events: {
-        submit: this.addNew,
+        submit: this.addNew.bind(this),
       },
     });
 
     document.querySelector('main').appendChild(form);
   }
 
-  buildForm2 = () => {
+  buildForm2() {
     const btn = createNewElement({
       type: 'button',
       id: 'form2-btn',
@@ -42,8 +40,8 @@ class Task {
       type: 'form',
       id: 'form2',
       events: {
-        submit: this.deleteTasks,
-        input: editTask,
+        submit: this.deleteTasks.bind(this),
+        input: data.editTask,
       },
     });
 
@@ -51,7 +49,7 @@ class Task {
     document.querySelector('main').appendChild(form);
   }
 
-  liTemplate = (task) => {
+  liTemplate(task) {
     const span1 = createNewElement({
       type: 'span',
       id: `span1-${task.index}`,
@@ -65,7 +63,7 @@ class Task {
       id: `span2-${task.index}`,
       className: 'material-symbols-outlined span-none',
       content: 'delete',
-      events: { click: this.deleteSingleTask },
+      events: { click: this.deleteSingleTask.bind(this) },
     });
 
     const li = createNewElement({
@@ -77,8 +75,8 @@ class Task {
       <hr>
       `,
       events: {
-        drag: this.drag,
-        dragover: this.dragover,
+        drag: this.drag.bind(this),
+        dragover: this.dragover.bind(this),
       },
     });
 
@@ -88,7 +86,7 @@ class Task {
     return li;
   }
 
-  defineLi = (e) => {
+  defineLi(e) {
     let li;
     if (e.target.nodeName === 'LI') li = e.target;
     if (e.target.parentNode.nodeName === 'LI') li = e.target.parentNode;
@@ -96,16 +94,16 @@ class Task {
     return li;
   }
 
-  drag = (e) => {
+  drag(e) {
     e.preventDefault();
     this.draggedLiId = e.target.id;
   }
 
-  dragover = (e) => {
+  dragover(e) {
     e.preventDefault();
   }
 
-  drop = (e) => {
+  drop(e) {
     e.preventDefault();
     const draggedLi = this.draggedLiId ? document.querySelector(`#${this.draggedLiId}`) : null;
     const draggOverE = this.defineLi(e);
@@ -113,36 +111,36 @@ class Task {
 
     if (draggedLi && draggOverE.id !== draggedLi.id) {
       ul.insertBefore(draggedLi, draggOverE);
-      exhangeData(draggedLi.id, draggOverE.id);
+      data.exhangeData(draggedLi.id, draggOverE.id);
       this.refreshTasks();
     }
   }
 
-  refreshTasks = () => {
+  refreshTasks() {
     document.querySelector('#ul-tasks').innerHTML = '';
     this.showTasks();
   }
 
-  showTasks = () => {
+  showTasks () {
     const ul = createNewElement({
       type: 'ul',
       id: 'ul-tasks',
       className: 'form2-ul',
       events: {
-        drop: this.drop,
+        drop: this.drop.bind(this),
       },
     });
 
-    getData().forEach((e) => {
+    data.getData().forEach((e) => {
       ul.appendChild(this.liTemplate(e));
     });
 
     document.querySelector('#form2').insertAdjacentElement('afterbegin', ul);
   }
 
-  addNew = (e) => {
+  addNew(e) {
     e.preventDefault();
-    const tasks = getData();
+    const tasks = data.getData();
     const newTask = {
       index: tasks.length + 1,
       description: e.target.elements[0].value,
@@ -151,13 +149,13 @@ class Task {
 
     if (newTask.description.length > 0) {
       tasks.push(newTask);
-      setData(tasks);
+      data.setData(tasks);
       this.refreshTasks();
       e.target.reset();
     }
   }
 
-  deleteTasks = (e) => {
+  deleteTasks(e) {
     e.preventDefault();
     const checks = document.querySelectorAll('input[type="checkbox"]');
     const checkeds = [];
@@ -166,18 +164,18 @@ class Task {
     });
 
     if (checkeds.length > 0) {
-      deleteArrOfIndex(checkeds);
+      data.deleteArrOfIndex(checkeds);
     }
     this.refreshTasks();
   }
 
-  deleteSingleTask = (e) => {
+  deleteSingleTask(e) {
     const arrIndex = new Array(e.target.id.split('-')[1]);
-    deleteArrOfIndex(arrIndex);
+    data.deleteArrOfIndex(arrIndex);
     this.refreshTasks();
   }
 
-  enableEdit = (e) => {
+  enableEdit(e) {
     const span1 = document.querySelector(`#${e.target.id}`);
     span1.classList.add('span-none');
 
