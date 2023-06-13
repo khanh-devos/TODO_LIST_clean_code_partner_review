@@ -58,7 +58,7 @@
 
 ## 🚀 Live Demo <a name="live-demo"></a>
 
-- [Live Demo Link](https://khanh-devos.github.io/TO-DO-LIST/dist)
+- [Live Demo Link](https://khanh-devos.github.io/TODO_LIST_clean_code_partner_review/dist/)
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 <!-- GETTING STARTED -->
@@ -67,7 +67,7 @@
 
 - Open your Terminal
 - Navigate to the desired directory to which you want to clone the repository to
-- [Copy & Paste] git clone https://github.com/khanh-devos/TO-DO-LIST.git
+- [Copy & Paste] git clone https://github.com/khanh-devos/TODO_LIST_clean_code_partner_review.git
 
 ### Prerequisites
 
@@ -82,7 +82,7 @@ In order to run this project you need:
 
 Clone this repository to your desired folder:
 
-- git clone https://github.com/khanh-devos/TO-DO-LIST.git
+- git clone https://github.com/khanh-devos/TODO_LIST_clean_code_partner_review.git
 
 ### Install
 
