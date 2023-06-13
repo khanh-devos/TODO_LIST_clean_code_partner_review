@@ -6,5 +6,3 @@ todos.buildForm1();
 todos.buildForm2();
 
 todos.showTasks();
-
-console.log(todos);

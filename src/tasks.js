@@ -55,7 +55,7 @@ class Task {
       id: `span1-${task.index}`,
       className: 'material-symbols-outlined',
       content: 'more_vert',
-      events: { click: this.enableEdit },
+      events: { click: Task.enableEdit },
     });
 
     const span2 = createNewElement({
@@ -76,7 +76,7 @@ class Task {
       `,
       events: {
         drag: this.drag.bind(this),
-        dragover: this.dragover.bind(this),
+        dragover: Task.dragover,
       },
     });
 
@@ -86,7 +86,7 @@ class Task {
     return li;
   }
 
-  defineLi(e) {
+  static defineLi(e) {
     let li;
     if (e.target.nodeName === 'LI') li = e.target;
     if (e.target.parentNode.nodeName === 'LI') li = e.target.parentNode;
@@ -99,14 +99,14 @@ class Task {
     this.draggedLiId = e.target.id;
   }
 
-  dragover(e) {
+  static dragover(e) {
     e.preventDefault();
   }
 
   drop(e) {
     e.preventDefault();
     const draggedLi = this.draggedLiId ? document.querySelector(`#${this.draggedLiId}`) : null;
-    const draggOverE = this.defineLi(e);
+    const draggOverE = Task.defineLi(e);
     const ul = document.querySelector('#ul-tasks');
 
     if (draggedLi && draggOverE.id !== draggedLi.id) {
@@ -121,7 +121,7 @@ class Task {
     this.showTasks();
   }
 
-  showTasks () {
+  showTasks() {
     const ul = createNewElement({
       type: 'ul',
       id: 'ul-tasks',
@@ -175,7 +175,7 @@ class Task {
     this.refreshTasks();
   }
 
-  enableEdit(e) {
+  static enableEdit(e) {
     const span1 = document.querySelector(`#${e.target.id}`);
     span1.classList.add('span-none');
 
