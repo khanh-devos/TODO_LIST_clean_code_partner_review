@@ -1,6 +1,5 @@
 // const { getData, setData } = require("../data");
-import * as data from '../data.js'
-
+import * as data from '../data.js';
 
 const addNew = (description) => {
 //   e.preventDefault();
@@ -8,7 +7,7 @@ const addNew = (description) => {
   const newTask = {
     index: tasks.length + 1,
     // description: e.target.elements[0].value,
-    description: description,
+    description,
     completed: false,
   };
 
@@ -19,8 +18,8 @@ const addNew = (description) => {
     // e.target.reset();
   }
 
-  const newData = data.getData()
-  return newData[newData.length - 1].description
-}
+  const newData = data.getData();
+  return newData[newData.length - 1].description;
+};
 
 module.exports = addNew;

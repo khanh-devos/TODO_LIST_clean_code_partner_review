@@ -1,5 +1,5 @@
-const addNew = require('./addNew')
+const addNew = require('./addNew.js');
 
 test('test', () => {
-  expect(addNew('123')).toBe('123')
-})
+  expect(addNew('123')).toBe('123');
+});
