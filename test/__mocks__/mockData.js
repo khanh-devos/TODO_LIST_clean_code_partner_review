@@ -1,4 +1,4 @@
-class Data {
+export default class Data {
   constructor() {
     this.data = [
       {
@@ -35,6 +35,3 @@ class Data {
   }
 }
 
-export const Data1 = new Data();
-export const Data2 = new Data();
-export const Data3 = new Data();

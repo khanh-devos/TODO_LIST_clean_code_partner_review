@@ -1,7 +1,8 @@
-import * as d from './__mocks__/mockData.js';
+import Data from './__mocks__/mockData.js';
 
 export const addNew = (description) => {
-  const tasks = d.Data1.getData();
+  const data = new Data()
+  const tasks = data.getData();
   const newTask = {
     index: tasks.length + 1,
     description,
@@ -10,11 +11,11 @@ export const addNew = (description) => {
 
   if (newTask.description.length > 0) {
     tasks.push(newTask);
-    d.Data1.setData(tasks);
+    data.setData(tasks);
   }
 
   if (newTask.description.length > 0) {
-    const check = d.Data1.getData();
+    const check = data.getData();
     return check[check.length - 1];
   }
   throw new Error('task cannot be an empty string');
@@ -22,28 +23,29 @@ export const addNew = (description) => {
 
 export const deleteTasks = (checks) => {
   // const checks = document.querySelectorAll('input[type="checkbox"]');
-
+  const data = new Data();
   const checkeds = [];
   checks.forEach((e) => {
     if (e.checked) checkeds.push(e.name);
   });
 
   if (checkeds.length > 0) {
-    d.Data2.deleteArrOfIndex(checkeds);
+    data.deleteArrOfIndex(checkeds);
   }
 
   // for testing
   if (checkeds.length > 0) {
-    const checkTasks = d.Data2.getData();
+    const checkTasks = data.getData();
     return checkTasks;
   }
   throw new Error('no task completed');
 };
 
 export const deleteSingleTask = (index) => {
+  const data = new Data();
   const arrIndex = new Array(index.toString());
-  d.Data3.deleteArrOfIndex(arrIndex);
+  data.deleteArrOfIndex(arrIndex);
 
   // check
-  return d.Data3.getData();
+  return data.getData();
 };
