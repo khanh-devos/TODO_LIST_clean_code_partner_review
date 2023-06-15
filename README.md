@@ -122,6 +122,12 @@ You can deploy any service you want.
 - Twitter: [@khanhror](https://twitter.com/home?lang=en)
 - LinkedIn: [Khanh RoR](https://www.linkedin.com/in/khanh-than-trong-3b4344246/)
 
+👤 **Manzi**
+
+- GitHub: [@githubhandle](https://github.com/manzitresor)
+- Twitter: [@githubhandle](https://twitter.com/MANZITresor3)
+- LinkedIn: [LinkedIn](https://www.linkedin.com/in/manzi-tresor-783b4022a/)
+
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
 <!-- FUTURE FEATURES -->
