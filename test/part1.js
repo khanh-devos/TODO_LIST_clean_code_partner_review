@@ -1,7 +1,7 @@
 import Data from './__mocks__/mockData.js';
 
 export const addNew = (description) => {
-  const data = new Data()
+  const data = new Data();
   const tasks = data.getData();
   const newTask = {
     index: tasks.length + 1,
